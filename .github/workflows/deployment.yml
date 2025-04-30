@@ -51,14 +51,4 @@ jobs:
       - name: Chedk NodeJS version
         run: node -v
       - name: rsync connection
-        run: rsync -e "ssh -o StrictHostKeyChecking=no" -arvc * ${{secrets.USERDEV}}@${{secrets.SERVERDEV}}:home/gunawan/nodejs-qae-github/
-      - name: Install NodeJS
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - name: Install dependencies
-        run: npm ci
-      - name: Build project
-        run: npm run build
-      - name: Deploy
-        run: echo "Deploying ..."
+        run: rsync -e "ssh -o StrictHostKeyChecking=no" -arvc * ${{secrets.USERDEV}}@${{secrets.SERVERDEV}}:/home/gunawan/nodejs-qae-github/
